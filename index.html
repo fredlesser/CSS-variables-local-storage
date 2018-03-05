@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LocalStorage</title>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Merriweather:400,700|Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <aside class="sidebar">
+      <form class="form">
+        <fieldset>
+          <label for="heading">Heading</label>
+          <input type="text" id="heading" value="">
+          <label for="forground">Heading background</label>
+          <input type="color" id="forground">
+          <label for="headingColor">Heading color</label>
+          <input type="color" id="headingColor">
+          <label for="headingSize">Heading size</label>
+          <input id="headingSize" type="range" name="headingSize" min="1" max="5" data-sizing="rem">
+        </fieldset>
+        <fieldset>
+          <label for="textArea">Text</label>
+          <textarea id="textArea" rows="8"></textarea>
+          <label for="background">Background color</label>
+          <input type="color" id="background">
+          <label for="textColor">Text color</label>
+          <input type="color" id="textColor">
+          <label for="textSize">Text size</label>
+          <input id="textSize" type="range" name="textSize" min="1" max="3" data-sizing="rem">
+        </fieldset>
+        <fieldset>
+          <label for="font">Font</label>
+          <select id="font">
+          	<option value="'Roboto', sans-serif" selected="">Sans-serif</option>
+          	<option value="'Merriweather', serif">Serif</option>
+          	<option value="'Inconsolata', monospace">Monospace</option>
+          </select>
+          <label for="font">Font</label>
+          <select id="align">
+          	<option value="left" selected="">Left</option>
+          	<option value="center">Center</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          
+          
+        </fieldset>
+        <button type="submit" name="button">Save</button>
+      </form>
+    </aside>
+    <main>
+      <h1></h1>
+      <p></p>
+    </main>
+  </div>
+</body>
+<script src="main.js"></script>
+
+</body>
+</html>

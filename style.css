@@ -1,0 +1,48 @@
+:root {
+  --forground: red;
+  --background: orange;
+  --headingColor: white;
+  --textColor: white;
+  --font: 'Roboto', sans-serif;
+  --headingSize: 2rem;
+  --textSize: 1.6rem;
+  --align: left;
+}
+
+body {
+  color: var(--textColor);
+  font-family: var(--font);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+main {
+  background: var(--background);
+  text-align: var(--align);
+}
+
+main h1 {
+  background: var(--forground);
+  color: var(--headingColor);
+  margin: 0;
+  padding: 1rem;
+  font-size: var(--headingSize);  
+}
+
+main p {
+  margin: 0;
+  padding: 1rem;
+  font-size: var(--textSize);
+}
+
+form {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+form label {
+  display: block;
+}
