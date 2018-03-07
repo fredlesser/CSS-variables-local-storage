@@ -1,17 +1,17 @@
 :root {
-  --forground: red;
-  --background: orange;
-  --headingColor: white;
-  --textColor: white;
-  --font: 'Roboto', sans-serif;
-  --headingSize: 2rem;
-  --textSize: 1.6rem;
-  --align: left;
+  --headingBgInput: red;
+  --textBgInput: orange;
+  --headingColorInput: white;
+  --textColorInput: white;
+  --fontFamilyInput: 'Roboto', sans-serif;
+  --headingSizeInput: 2rem;
+  --textSizeInput: 1.6rem;
+  --textAlignInput: left;
 }
 
 body {
-  color: var(--textColor);
-  font-family: var(--font);
+  color: var(--textColorInput);
+  font-family: var(--fontFamilyInput);
 }
 
 .wrapper {
@@ -20,25 +20,25 @@ body {
 }
 
 main {
-  background: var(--background);
+  background: var(--textBgInput);
   /* background-image:url(''); */
   background-size: cover;
   background-repeat: no-repeat;
-  text-align: var(--align);
+  text-align: var(--textAlignInput);
 }
 
 main h1 {
-  background: var(--forground);
-  color: var(--headingColor);
+  background: var(--headingBgInput);
+  color: var(--headingColorInput);
   margin: 0;
   padding: 1rem;
-  font-size: var(--headingSize);  
+  font-size: var(--headingSizeInput);  
 }
 
 main p {
   margin: 0;
   padding: 1rem;
-  font-size: var(--textSize);
+  font-size: var(--textSizeInput);
 }
 
 form {

@@ -1,67 +1,89 @@
 //Variables
+//Elements
 const form = document.querySelector('form');
 const main = document.querySelector('main');
-const textInput = form.querySelector('input[type=text]');
-const textArea = form.querySelector('textarea');
-const font = form.querySelector('select[id=font]');
-const align = form.querySelector('select[id=align]');
-const colorInputs = form.querySelectorAll('input[type=color]');
-const forground = form.querySelector('input[id=forground]');
-const background = form.querySelector('input[id=background]');
-const bgImage = form.querySelector('input[id=bgImage]');
-const textColor = form.querySelector('input[id=textColor]');
-const rangeInputs = form.querySelectorAll('input[type=range]');
 const heading = document.querySelector('h1');
-const headingSize = form.querySelector('input[id=headingSize]');
-const headingColor = form.querySelector('input[id=headingColor]');
 const text = document.querySelector('p');
-const textSize = form.querySelector('input[id=textSize]');
+
+//Inputs
+//Heading
+const headingInput = form.querySelector('input[id=headingInput]');
+const headingBgInput = form.querySelector('input[id=headingBgInput]');
+const headingColorInput = form.querySelector('input[id=headingColorInput]');
+const headingSizeInput = form.querySelector('input[id=headingSizeInput]');
+
+
+const textAreaInput = form.querySelector('#textAreaInput');
+const textBgInput = form.querySelector('input[id=textBgInput]');
+const textSizeInput = form.querySelector('input[id=textSizeInput]');
+const textColorInput = form.querySelector('input[id=textColorInput]');
+
+const colorInputs = form.querySelectorAll('input[type=color]');
+const rangeInputs = form.querySelectorAll('input[type=range]');
+
+const bgImageInput = form.querySelector('input[id=bgImageInput]');
+
+const textAlignInput = form.querySelector('select[id=textAlignInput]');
+const fontFamilyInput = form.querySelector('select[id=fontFamilyInput]');
+
+
 
 //Load form data from local storage
 const formData = JSON.parse(localStorage.getItem('formData')) || [];
 
 function loadFormData() {
-  const formInputs = form.querySelectorAll('input');
+  const formInputs = form.querySelectorAll('.input');
   formInputs.forEach(formInput => {
-    textInput.value = formData.heading;
-    textArea.value = formData.textArea;
-    font.value = formData.font;
-    align.value = formData.align;
-    forground.value = formData.forground;
-    background.value = formData.background;
-    bgImage.value = formData.bgImage;
-    textColor.value = formData.textColor;
-    headingSize.value = formData.headingSize;
-    headingColor.value = formData.headingColor;
-    textSize.value = formData.textSize;
-  })
+    headingInput.value = formData.headingInputData;
+    headingBgInput.value = formData.headingBgInputData;
+    headingColorInput.value = formData.headingColorInputData;
+    headingSizeInput.value = formData.headingSizeInputData;
+    
+    textAreaInput.value = formData.textAreaInputData;
+    textBgInput.value = formData.textBgInputData;
+    textColorInput.value = formData.textColorInputData;
+    textSizeInput.value = formData.textSizeInputData;
+    
+    bgImageInput.value = formData.bgImageInputData;
+    
+    fontFamilyInput.value = formData.fontFamilyInputData;
+    textAlignInput.value = formData.textAlignInputData;
+  });
 }
 
 function submitForm(e) {
   e.preventDefault();
-  const heading = (this.querySelector('[id=heading]')).value;
-  const textArea = (this.querySelector('[id=textArea]')).value;
-  const font = (this.querySelector('[id=font]')).value;
-  const align = (this.querySelector('[id=align]')).value;
-  const forground = (this.querySelector('[id=forground]')).value;
-  const background = (this.querySelector('[id=background]')).value;
-  const bgImage = (this.querySelector('[id=bgImage]')).value;
-  const textColor = (this.querySelector('[id=textColor]')).value;
-  const headingSize = (this.querySelector('[id=headingSize]')).value;
-  const headingColor = (this.querySelector('[id=headingColor]')).value;
-  const textSize = (this.querySelector('[id=textSize]')).value;
+  const headingInputData = headingInput.value;
+  const headingBgInputData = headingBgInput.value;
+  const headingColorInputData = headingColorInput.value;
+  const headingSizeInputData = headingSizeInput.value;
+  
+  
+  const textAreaInputData = textAreaInput.value;
+  const textBgInputData = textBgInput.value;
+  const textColorInputData = textColorInput.value;
+  const textSizeInputData = textSizeInput.value;
+  
+  const bgImageInputData = bgImageInput.value;
+  
+  const fontFamilyInputData = fontFamilyInput.value;
+  const textAlignInputData = textAlignInput.value;
+
   const formData = {
-    heading: heading,
-    font: font,
-    align: align,
-    textArea: textArea,
-    forground: forground,
-    background: background,
-    bgImage: bgImage,
-    textColor: textColor,
-    headingSize: headingSize,
-    headingColor: headingColor,
-    textSize: textSize,
+    headingInputData: headingInputData,
+    headingBgInputData: headingBgInputData,
+    headingColorInputData: headingColorInputData,
+    headingSizeInputData: headingSizeInputData,
+    
+    textAreaInputData: textAreaInputData,
+    textBgInputData: textBgInputData,
+    textColorInputData: textColorInputData,
+    textSizeInputData: textSizeInputData,
+    
+    bgImageInputData: bgImageInputData,
+    
+    fontFamilyInputData: fontFamilyInputData,
+    textAlignInputData: textAlignInputData,
   }
   localStorage.setItem('formData', JSON.stringify(formData));
   console.log(formData);
@@ -73,7 +95,7 @@ function handleChange() {
 }
 
 function updateBackgroundImage() {
-  main.style.backgroundImage = "url(" + bgImage.value + ")";
+  main.style.backgroundImage = "url(" + bgImageInput.value + ")";
   console.log(main);
 }
 
@@ -87,26 +109,35 @@ function updateVar(variable) {
 }
 
 //Handle live changes
-textInput.addEventListener('keyup', () => updateText(heading, textInput));
-textArea.addEventListener('keyup',  () => updateText(text, textArea));
-font.addEventListener('change', handleChange);
-align.addEventListener('change', handleChange);
-bgImage.addEventListener('change', updateBackgroundImage);
+headingInput.addEventListener('keyup', () => updateText(heading, headingInput));
+textAreaInput.addEventListener('keyup',  () => updateText(text, textAreaInput));
+
+bgImageInput.addEventListener('change', updateBackgroundImage);
+
 rangeInputs.forEach(input => input.addEventListener('change', handleChange));
 rangeInputs.forEach(input => input.addEventListener('mousemove', handleChange));
+
 colorInputs.forEach(input => input.addEventListener('change', handleChange));
+
+fontFamilyInput.addEventListener('change', handleChange);
+textAlignInput.addEventListener('change', handleChange);
+
 form.addEventListener('submit', submitForm);
 
 //Update on page load
 loadFormData();
-updateText(heading, textInput);
-updateText(text, textArea);
-updateVar(forground);
-updateVar(background);
+
+updateText(heading, headingInput);
+updateVar(headingBgInput);
+updateVar(headingColorInput);
+updateVar(headingSizeInput);
+
+updateText(text, textAreaInput);
+updateVar(textBgInput);
+updateVar(textColorInput);
+updateVar(textSizeInput);
+
 updateBackgroundImage();
-updateVar(headingSize);
-updateVar(headingColor);
-updateVar(textSize);
-updateVar(textColor);
-updateVar(align);
-updateVar(font);
+
+updateVar(fontFamilyInput);
+updateVar(textAlignInput);
